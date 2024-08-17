@@ -29,6 +29,7 @@ public class SortColors {
     for(int i=0;i<nums.length;i++){
       System.out.println(nums[i]);
     }
+    System.out.println(twos);
   }
 
 }
