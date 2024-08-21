@@ -23,6 +23,7 @@ public class DiagonalDifference {
 
   }
 
+  // using list
   public static int diagonalDifference(List<List<Integer>> arr) {
 
     int primaryDiagonalSum = 0;
