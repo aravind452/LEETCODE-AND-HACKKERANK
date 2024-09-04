@@ -5,7 +5,7 @@ public class KthDistinct {
   public static void main(String[] args) {
 
     String[] arr = { "d", "b", "c", "b", "c", "a" };
-    int k = 2;
+    int k = 3;
 
     HashMap<String, Integer> map = new HashMap<>();
 
