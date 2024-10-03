@@ -40,7 +40,7 @@ We can count the occurrences of each remainder and check if we can form valid pa
 public class Arrange {
 
   public static void main(String[] args) {
-    int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+    int[] arr = { 1, 2, 3, 4, 5, 6 };
     int k = 7;
     System.out.println(canArrange(arr, k));
 
@@ -60,7 +60,6 @@ public class Arrange {
     System.out.println(rem.keySet());
     System.out.println(rem.values());
     for (int r : rem.keySet()) {
-
       if (r == 0) {
         if (rem.get(r) % 2 != 0) {
           return false;
@@ -68,14 +67,51 @@ public class Arrange {
       } else {
 
         int anotherRem = k - r;
-        if (!rem.get(r).equals(rem.getOrDefault(anotherRem, 0))) {
+        if (rem.containsKey(anotherRem)) {
+          if (!rem.get(r).equals(rem.get(anotherRem))) {
+            return false;
+
+          }
+
+        } else {
           return false;
         }
+
       }
     }
-
     return true;
-
   }
+
+  // using arrays
+
+  /*
+   * public boolean canArrange(int[] arr, int k) {
+   * // Step 1: Create a frequency array for remainders
+   * int[] remainderCount = new int[k];
+   * 
+   * // Count the frequency of each remainder
+   * for (int num : arr) {
+   * int remainder = (num % k + k) % k; // handle negative remainders
+   * remainderCount[remainder]++;
+   * }
+   * 
+   * // Step 2: Check pairs
+   * // Check the remainder 0
+   * if (remainderCount[0] % 2 != 0) {
+   * return false;
+   * }
+   * 
+   * // Check pairs of remainders
+   * for (int r = 1; r <= k / 2; r++) {
+   * if (remainderCount[r] != remainderCount[k - r]) {
+   * return false;
+   * }
+   * }
+   * 
+   * // If all checks pass, return true
+   * return true;
+   * }
+   * 
+   */
 
 }
